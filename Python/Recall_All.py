@@ -152,14 +152,124 @@ print(mydict)'''
 
 
 ######################################
-##########Sets#######################
-####################################
-#Sets: unordered, mutable, no dublicates
-myset = {1,2,3,}
-myset.add(4)        #insert single elemnt into a set
-myset.remove(2)     #to delete an element
+##########Sets########################
+######################################
 
-print(myset)
+#Sets: unordered, mutable, no dublicates
+#myset = {1,2,3,}
+#myset.add(4)        #insert single elemnt into a set
+#myset.remove(5)    #to delete an element by element_value, here if element not in set,it raises KeyError.
+#myset.discard(5)    #to delete an element by element_value, here if element not in set,it can't raise error.
+#print(myset.pop())  #to delete a arbitary element and returns deleted elemtn.
+#print(myset)
+
+'''
+###unioun,intersection
+odds = {1,3,5,7,9}
+even = {2,4,6,8}
+primes ={2,3,5,7}
+
+#u = odds.union(even)               #it returns all elements present in two sets.
+#print(u)
+#i = odds.intersection(even)        #it returns only common elements of both sets.
+#print(i)
+setA = {1,2,3,4,5,6}
+setB = {4,5,7,8}
+diff = setA.difference(setB)                #it returns setA elemtns those elements are not present in setB
+s_diff = setA.symmetric_difference(setB)    #it returns all elments from both sets, exclude common elements.
+#print(s_diff)
+
+setA.update(setB)           #update() function: merge the two sets. return all elemnts in setA
+setA.update(range(10,20))   #update() function: adding multiple elements, must be iterables.
+print(setA)'''
+
+######frozenset##########
+#Immutable set is called frozenset
+
+#a = frozenset([2,3,4,5])
+#a.add(6) #we got error
+#print(a)
+
+
+#################################
+##########Strings################
+#################################
+#strings: Ordered, immutable, text representation 
+
+'''
+my_string = "Hello I'm aseeth"
+my_string = 'Hello I\'m aseeth'
+
+#my_string = "Hello I \       #here the \ back slash connect the two lines
+#am aseeth"
+
+#my_string[0] = 'h'           #get error string are immutables editing is not supported
+
+my_string1 = my_string[2:5]         #string supports slicing. 
+new_string = my_string + "Nani"     #we concatinte two strings, stored in new string object
+print(new_string)'''
+
+my_string = "hello aseeth  and how are u"
+'''
+#my_string = my_string.strip()         #strip() function removes the white spaces.
+print(my_string.upper())
+print(my_string.lower())
+print(my_string.startswith('hello'))    #starstwith() function returns boolen value. True or False
+print(my_string.endswith('hello'))    #endswith() function returns boolen value. True or False
+print(my_string.find('o'))             #find() function returns index number.
+print(my_string.count('e'))             #count() function returns number that is how many times repeat.
+
+print(my_string.replace('aseeth','nani')) #replace() function replace the sub string '''        
+'''
+list = my_string.split()            #split() function used to split the string and stored into list
+new_string = ' '.join(list)         #join() function used to join the splitted string, imp function.
+print(new_string)'''
+
+
+
+#%, .format(), f-strings == formating styles
+
+name = "aseeth"
+#name = 123
+#my_string = "my name is %s" % name  #if name is string than we use %s
+#my_string = "my name is %d" % name  #if name is integer than we use %d,float %f, these are old styles
+
+my_string = "my name is {} and age is {}".format(name,27)
+print(my_string)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
