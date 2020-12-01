@@ -1,4 +1,4 @@
-###Recall the all Basics###
+###Recall all Basics###
 
 
 #in python every thing is an object
@@ -6,14 +6,16 @@
 #print(s.capitalize())
 #print("hello".capitalize())
 
+'''
 #Boolean
-#print('a'>'Z')
+print('a'>'Z')
 print('ab' > 'b')
 print(ord('a'),ord('Z')) #ord() method for find AASCI value
-print(chr(97))           # chr() method for find charecter for that value
+print(chr(97))           # chr() method for find charecter for that value'''
 
 
-
+########COLLECTIONS IN PYTHON##############
+####1)LIST######
 
 '''
 list = [] #empty list
@@ -24,12 +26,156 @@ list.append(20)   #insert element at end of the list
 list2=list+list1  #adding two lists
 print(list2)'''       
 
+list1 = [30,40,60,70,80]
+#list1.remove(30)   #removing an element by element_value
+#list1.pop()         #removes the last element.
+#list1.pop(1)       #removes element by index.
+#print(list1)
+
+
+
+
+#######2)Tuple#########
+#Tuples: orderd, immutable allows duplicate elements
+
+'''
+my_tuple = ('a','s','e','n','n')
+my_list = (list(my_tuple))  #converting tuple to list.
+my_tuple = tuple(my_list)   #coverting list to tuple
+print(my_tuple)'''
+
+'''
+a = (1,2,3,4,5,6,7)         #it supports slicing
+b = a[2:5:2]
+print(b)'''
+
+
+#tuple packing
+'''
+my_tuple = ('aseeth',26,'kkd')
+name,age,city = my_tuple       #Here num of values must matched with tuple
+print(name)
+print(age)
+print(city)'''
+
+
+'''
+my_tuple = (0,1,2,3,4)
+i1, *i2 , i3 = my_tuple     #here remaining elemnets grouped as a list and stored into the *i2 variable.
+print(i1)
+print(i2)
+#print(i3)'''
+
+
+'''
+import sys
+my_tuple=(0,1,2,"aseeth",True)      #so here tuple less memory utilization than list to store same elements
+my_list=[0,1,2,"aseeth",True]
+print(sys.getsizeof(my_tuple),"bytes")  #80 bytes
+print(sys.getsizeof(my_list),"bytes")   #120 bytes'''
+
+
+'''
+import timeit                       #so here tuple take less time to execute iterations than a list
+print(timeit.timeit(stmt="(0,1,2,3,4,5)",number=1000000)) #o/p: 0.024986399999999992
+print(timeit.timeit(stmt="[0,1,2,3,4,5]",number=1000000)) #o/p: 0.15797499999999998'''
+
+
+##############################
+########DICTIONARIES##########
+##############################
+
+#Key-value pairs, unorder, Mutable
+
+#mydict1 = {'name':'aseeth','age':'26', 'city':'kkd'} #case1:   create a dictionary 
+
+#mydict2 = dict(name='aseeth',age='26', city='kkd')  #case2:    create a dictionary
+#print(mydict2)
+
+#values = mydict1["name"]                   #to get the values
+
+#mydict1["email"]="aseeth@gmail.com"        #add the key value to dictionary
+#mydict1["email"]="aseeth_nani@gmail.com"   #overide the value, when add different value to existin key
+
+
+#del mydict1['name']                        #to delete particular key value
+#mydict1.pop('age')                         #same as delete
+#mydict1.popitem()                          #It deletes the last pair
+
+
+
+######Tocheck wheather key and value available or not
+'''
+try:
+    print(mydict1["lastname"])
+except:
+    print("Error")'''
+
+
+#######get all keys or values or both######
+'''
+for key,value in mydict1.items():
+    print(key,value)
+
+for keys in mydict1.keys():
+    print(keys)
+
+for value in mydict1.values():
+    print(value)'''
+
+
+
+##########copy the dictionary#######
+#mydict1_cpy = mydict1              #this is assignment if change one dict it effects other dict
+#mydict1_cpy = mydict1.copy()       #this copy creates seperate dict objects that's not effect another
+#mydict1_cpy = dict(mydict1)         # same as above we can do with dict() function..not effect another
+#mydict1_cpy['color']="brown"
+
+
+
+############merge two dictionaris#######
+'''
+mydict1 = {'name':'aseeth','age':'26', 'city':'kkd'}
+mydict2 = {'addres':'1-111','street':'temple street'}
+mydict1.update(mydict2)                #merge two dictrionaries using update() function.
+print(mydict1)'''
+
+
+##########tuple can use keys in dictionary not list######
+'''
+my_list = [4,5]
+my_tuple = (4,6)
+mydict = {my_tuple:10}           #its possible
+#mydict = {my_list:10}           #its not possible, Type error:unhashable
+print(mydict)'''
+
+
+
+######################################
+##########Sets#######################
+####################################
+#Sets: unordered, mutable, no dublicates
+myset = {1,2,3,}
+myset.add(4)        #insert single elemnt into a set
+myset.remove(2)     #to delete an element
+
+print(myset)
+
+
+
+
+
+
+
+
+
+
 
 
 
 
 #######connect MYSQL############
-
+'''
 import mysql.connector
 con = mysql.connector.connect(
     host='localhost',
@@ -37,7 +183,7 @@ con = mysql.connector.connect(
     password = 'root',
     database = 'my_new_database',
 )
-mycur = con.cursor()
+mycur = con.cursor()'''
 #mycur.execute("create database my_new_database")
 #mycur.execute("create table student(name varchar(30), address varchar(255))")
 #mycur.execute("create table customer(ID int auto_increment primary key,name varchar(40),address varchar(1000))")
