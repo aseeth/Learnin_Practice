@@ -50,7 +50,7 @@ mycur = con.cursor()
 '''
 #inserting multiple records:
 
-sql = "ame,addrinsert into customer(ness) values(%s,%s)"
+sql = "insert into customer(name,address) values(%s,%s)"
 val = [
     ('aseeth','rajahmundry'),
     ('mohan','srikakulam'),
