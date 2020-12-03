@@ -184,7 +184,7 @@ setA.update(range(10,20))   #update() function: adding multiple elements, must b
 print(setA)'''
 
 ######frozenset##########
-#Immutable set is called frozenset
+#Immutable set() is called frozenset
 
 #a = frozenset([2,3,4,5])
 #a.add(6) #we got error
@@ -428,7 +428,18 @@ for rec in cus_rec:
     print(rec)'''
 
 
+from functools import reduce
+def task1(l):
+    emp_list = []
+    for num in l:
+        new_list = l[:]
+        new_list.remove(num)
 
+        emp_list.append(reduce(lambda a,b:a*b, new_list))
+    return emp_list
+l = [2,3,4,5]
+res=task1(l)
+print(res)
 
 
 
