@@ -150,3 +150,61 @@ print(b)
 print()
 print("more than 6 charecter string")
 print(c)'''
+
+
+#10)Print the element with index?
+'''
+l=[1,2,3,4,5,6,7,8,9,10]
+for i in range(len(l)):
+    print(l[i],"index at",i)'''
+
+
+#11)
+'''
+a
+as
+ase
+asee
+aseet
+aseeth'''
+'''
+def task11(s):
+    for i in range(1,len(s)+1):
+        print(s[:i])
+s = "aseeth"
+task11(s)'''
+
+#12)capitalize the fitst letter for given string?
+#case1:
+'''
+def task12(s):
+    l= s.split()
+    s = [word.capitalize() for word in l] #here we use list comprehension
+    s = " ".join(s)
+    print(s)
+s = "hi aseeth how are u, are u ok"
+task12(s)'''
+
+#case2:
+'''
+def task12(s):
+    l = s.split()
+    s1 = ""
+    for word in l:
+        s1 = s1 + word.capitalize()+" "
+    print(s1)
+s = "hi aseeth how are u, are u ok"
+task12(s)'''
+
+
+#13)Find the factorial of a num using recursion?
+def task13(num):
+    if num == 0:
+        return "factorial is 1"
+    elif num == 1:
+        return num
+    else:
+        return num*task13(num-1)
+num = 6
+print(task13(num))
+

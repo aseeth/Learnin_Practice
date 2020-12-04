@@ -209,7 +209,7 @@ my_string1 = my_string[2:5]         #string supports slicing.
 new_string = my_string + "Nani"     #we concatinte two strings, stored in new string object
 print(new_string)'''
 
-my_string = "hello aseeth  and how are u"
+#my_string = "hello aseeth  and how are u"
 '''
 #my_string = my_string.strip()         #strip() function removes the white spaces.
 print(my_string.upper())
@@ -227,38 +227,131 @@ print(new_string)'''
 
 
 
-#%, .format(), f-strings == formating styles
+############ %, .format(), f-strings == formating styles ###########
+
+#%-format:
 
 name = "aseeth"
+age = 26
 #name = 123
 #my_string = "my name is %s" % name  #if name is string than we use %s
 #my_string = "my name is %d" % name  #if name is integer than we use %d,float %f, these are old styles
 
+
+#.format() function:
+'''
 my_string = "my name is {} and age is {}".format(name,27)
+print(my_string)'''
+
+
+#f-String- latest from 3.6
+'''
+my_string = f"my name is {name*3} age is {age}"
 print(my_string)
+my_string = f"my name is {name} age is {age}"
+print(my_string)'''
+
+
+##################################
+#####COLLECTIONS MODULE###########
+##################################
+#Collections: Counter, namedtuple, OrderedDict, defaultdict, deque
+
+#from collections import Counter
+
+a = 'aaaaaabbbcccccc'
+#my_counter = Counter(a)
+#print(my_counter) #o/p: Counter({'a': 6, 'c': 6, 'b': 3})
+#print(my_counter.keys())
+#print(my_counter.values())
+#print(my_counter.most_common(1))
+#print(my_counter.most_common(1)[0][0]) #find most common element
+#print(list(my_counter.elements()))      #converter as list
+
+'''
+from collections import namedtuple
+Point = namedtuple('Point','x,y')
+pt = Point(1,-4)
+print(pt.x,pt.y)'''
+
+'''
+from collections import defaultdict #This is available in 3.7
+d = defaultdict(int)
+d['a'] = 1
+d['b'] = 2
+print(d['c'])'''      #it gives deafault integer value as zero.
+
+''''
+from collections import deque
+d = deque()
+d.append(1)
+d.append(2)
+d.appendleft(4)
+print(d)
+d.pop()
+d.popleft()
+d.extend([5,6,7])
+d.extendleft([9,8,7])
+print(d)'''
+
+
+###########itrtools#################
+#itertools : product, permutations, combinations, accumulate, groupby, and infinite iterators,
+
+'''
+from itertools import product
+a = [1,2]
+b = [3,4]
+res = product(a,b)
+#res = product(a,b, repeat=2)
+print(list(res))'''        #o/p: [(1, 3), (1, 4), (2, 3), (2, 4)]
 
 
 
 
+'''
+from itertools import permutations
+a = [1,2,3]
+
+res = permutations(a, 2)    o/p:[(1, 2), (1, 3), (2, 1), (2, 3), (3, 1), (3, 2)]
+
+#res = permutations(a)       #o/p: [(1, 2, 3), (1, 3, 2), (2, 1, 3), (2, 3, 1), (3, 1, 2), (3, 2, 1)]
+                             #possible orders returns.
+print(list(res)) '''
+
+
+'''
+from itertools import combinations
+a = [1,2,3,4]
+#res = combinations(a, 2)
+res = combinations(a, 3)
+print(list(res))'''   #o/p: returns all possible combinations with length(length mandatory)
+
+'''
+from itertools import groupby
+persons = [{'name':'aseeth','age':26},{'name':'nani','age':25},
+{'name':'eswar','age':26},{'name':'balu','age':26}]
+
+res = groupby(persons, key=lambda x: x['age'])
+for k,v in res:
+    print(k,list(v))'''
+
+
+'''
+from itertools import count,cycle,repeat
+for i in count(10):
+    print(i)
+    if i == 25:
+        break'''
 
 
 
+######################################
+##########lambda functions############
+######################################
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+add = lambda x: x+20
+print(add(30))
 
 
 
@@ -428,18 +521,9 @@ for rec in cus_rec:
     print(rec)'''
 
 
-from functools import reduce
-def task1(l):
-    emp_list = []
-    for num in l:
-        new_list = l[:]
-        new_list.remove(num)
 
-        emp_list.append(reduce(lambda a,b:a*b, new_list))
-    return emp_list
-l = [2,3,4,5]
-res=task1(l)
-print(res)
+
+
 
 
 
