@@ -37,7 +37,7 @@ task1(l)'''
 #2)write regular expression for validate email and phone num?
 
 #for validating phone num..!
-import re
+#import re
 '''
 def task2(num):
     res = re.fullmatch("[+]91[789]\d{9}",num)
@@ -69,10 +69,14 @@ def task3(l):
 l = [1,2,3,4,5,6,7,8,9,10]
 task3(l)'''
 
+
+
 #4)if j = [[[[[6]]]]] in this how to get 6?
 '''
 j = [[[[[6]]]]]
 print(j[0][0][0][0][0])'''
+
+
 
 #5)Reverse a string without using built function j = 'welcome' and check whether string
 #is palindrome or not?
@@ -91,6 +95,25 @@ def task5(s):
 #s = "welcome"
 s = "madam"
 task5(s)'''
+
+
+#5(i))Find given num is a palindrom or not?
+'''
+def palindrom(num):
+    num1 = num
+    rev = 0
+    while num > 0:
+        dig = num%10
+        rev = rev *10+dig
+        num = num//10
+    if num1 == rev:
+        print("It is a palindrom num")
+    else:
+        print("Not a palindrom")
+num = int(input("enter u r number:"))
+palindrom(num)'''
+
+
 
 #6)write sql update and ORM update query?
 '''
@@ -197,7 +220,10 @@ s = "hi aseeth how are u, are u ok"
 task12(s)'''
 
 
+
+
 #13)Find the factorial of a num using recursion?
+'''
 def task13(num):
     if num == 0:
         return "factorial is 1"
@@ -206,5 +232,101 @@ def task13(num):
     else:
         return num*task13(num-1)
 num = 6
-print(task13(num))
+print(task13(num))'''
+
+
+
+
+#14)Find the given num is a armstrong or not?
+'''
+def armstrong(num):
+    num1=num
+    l = len(str(num))
+    arm = 0
+    while num>0:
+        dig = num%10
+        arm = arm+dig**l
+        num = num//10
+    if num1 == arm:
+        print("armstrong")
+    else:
+        print("not")
+
+num=int(input("enter u r num:"))
+armstrong(num)''' 
+
+
+
+
+#15)check given num is prime or not?
+'''
+def prime(num):
+    if num>1:
+        for i in range(2,num):
+            if num%i == 0:
+                print("not prime")
+                break
+        else:
+            print("prime")        
+num=int(input("enter num:"))
+prime(num)'''
+
+
+
+
+#15(i) print all prime numbers upto u need?
+'''
+def prime(num):
+    for i in range(num):
+        if i>1:
+            for j in range(2,i):
+                if i%j == 0:
+                    break
+            else:
+                print(i,end=",")
+num = int(input("enter u r num: "))
+prime(num)'''
+
+
+
+def binSearch(l,n):
+    start = 0
+    end = len(l)-1
+    mid = len(l)//2
+    while start <= end:
+
+        if n == l[mid]:
+            return mid
+
+        elif n>l[mid]:
+            start = mid +1
+            
+        else:
+            end = mid - 1
+    return -1
+        
+l = [19,22,30,43,50]
+n = int(input("enter number: "))
+res = binSearch(l,n)
+
+if res != -1:
+    print("num present at", res,"index")
+else:
+    print("num not present in list")
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 

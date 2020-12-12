@@ -295,7 +295,7 @@ d.extendleft([9,8,7])
 print(d)'''
 
 
-###########itrtools#################
+###########itertools#################
 #itertools : product, permutations, combinations, accumulate, groupby, and infinite iterators,
 
 '''
@@ -349,24 +349,67 @@ for i in count(10):
 ######################################
 ##########lambda functions############
 ######################################
+#lambda arguments: expression
 
+'''
+#adding
 add = lambda x: x+20
 print(add(30))
 
+mul = lambda x,y: x*y
+print(mul(10,10))'''
 
 
 
+'''
+points2D = [(1,2),(15,1),(5,-1),(10,4)]
+
+points2D_sorted = sorted(points2D) #sorting with first element that is x.
+print(points2D_sorted)
+
+
+points2D_sorted = sorted(points2D, key=lambda x: x[1]) #Here sorted()function sorts the based on x means 
+                                                    #first element if u want to sort with 2nd elemtnt u can pass the key=
+
+points2D_sorted = sorted(points2D, key=lambda x: x[0] + x[1]) #sorted by adding two elemnts
+print(points2D_sorted)'''
+
+
+'''
+points2D = [(1,2),(15,1),(5,-1),(10,4)]
+def sort_by_y(x):                           #same achieved by a funciton.
+    return x[1]
+points2D_sorted = sorted(points2D,key=sort_by_y)
+print(points2D_sorted)'''
 
 
 
+#map(func, seq)
+'''
+l = [2,3,4,5]
+res =map(lambda x: x**2, l)
+print(list(res))
+
+c = [x**2 for x in l]   #achieve with list comprehension
+print(c)'''
 
 
 
+#filter(func,seq)
+'''
+l = [2,3,4,5,7,8,9]
 
+res = filter(lambda x: x%2==1, l) #with lambda
+print(list(res))
 
+c = [x for x in l if x%2==1]    #with list comprehension
+print(c)'''
 
-
-
+#reduce(func, seq)
+from functools import reduce
+l = [2,3,4,5,7,8,9]
+res = reduce(lambda x,y: x+y, l)
+print(res)
 
 
 
