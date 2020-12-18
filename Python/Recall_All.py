@@ -23,13 +23,16 @@ list1 = [30,40,60]
 list = [1,2,3]
 list.insert(0,10) #insert element by index
 list.append(20)   #insert element at end of the list
+list.extend(list1) #extends the list with another list
 list2=list+list1  #adding two lists
 print(list2)'''       
 
-list1 = [30,40,60,70,80]
+#list1 = [30,40,60,70,80]
 #list1.remove(30)   #removing an element by element_value
 #list1.pop()         #removes the last element.
 #list1.pop(1)       #removes element by index.
+#del list1[2]       #delete an element by its index
+#del list1          #for delete complete list
 #print(list1)
 
 
@@ -405,19 +408,154 @@ print(list(res))
 c = [x for x in l if x%2==1]    #with list comprehension
 print(c)'''
 
+
 #reduce(func, seq)
+'''
 from functools import reduce
 l = [2,3,4,5,7,8,9]
 res = reduce(lambda x,y: x+y, l)
-print(res)
+print(res)'''
+
+
+
+
+
+##########################################################################
+##########EXCEPTIONS############
+'''
+x = 5
+if x > 0:   #condition true than below exception execute
+    raise Exception("x should be less than 3")'''
+
+'''
+x = -5  # condition false than assert error display
+assert(x>=0), 'x is not positive'''
+
+
+#ex1:
+'''
+try:
+    a = 5/0
+except:
+    print('its not possible')'''
+
+
+
+#ex2:
+'''
+try:
+    a = 5/0
+except Exception as e:  #if u dont know exception thann use this syn
+    print(e)'''
+
+
+#ex3:
+'''
+try:
+    #a = 5/0
+    a = 5/1
+    #b = a + '20'
+    b = a+2
+except ZeroDivisionError as e: # if u know than use it
+    print(e)
+except TypeError as e:
+    print(e)
+else:
+    print("every thing is fine")    #when there is no exception than else block executes
+
+finally:                #it always executes.
+    print("cleaning up...")'''
+
+
+
+
+
+#######Writing User manual Errors#####
+
+'''
+class ValueTooHighError(Exception):
+    pass
+
+class ValueTooSmallError(Exception):
+    def __init__(self,message,value):
+        self.message = message
+        self.value = value
+
+def test_value(x):
+    if x>100:
+        raise ValueTooHighError('value is too high')
+    if x<100:
+        raise ValueTooSmallError('value is too small',x)
+#test_value(150)
+
+try:
+    test_value(99)
+except ValueTooHighError as e:
+    print(e)
+except ValueTooSmallError as e:
+    print(e.message,e.value)'''
+
+
+#################################################################################
+
+
+###########LOGGING MODULE#############
+'''
+import logging
+
+logging.basicConfig(level=logging.DEBUG,format='%(asctime)s-%(name)s-%(levelname)s-%(message)s',datefmt='%d/%m/%Y  %H:%M:%S')
+
+logging.debug('this is debug message')
+logging.info('This is a info message')
+logging.warning('This is a warnig message')
+logging.error('this is error message')
+logging.critical('this is a critical message')'''
+
+'''
+import logging
+logging.basicConfig(level=logging.DEBUG,format='%(asctime)s-%(name)s-%(levelname)s-%(message)s',datefmt='%d/%m/%Y  %H:%M:%S')
+import helper
+logging.debug('this is debug message')'''
+
+'''
+import logging
+import traceback
+
+try:
+    a = [1,2,3]
+    val = a[4]
+except:
+    logging.error('the error is %s',traceback.format_exc())'''
+
+
+######################################################################################
+                ############
+#####################JSON########################
+                ############
+
+
+import json
+
+person = {'name':'aseeth', 'age':27, 'city':'Kakinada', 'hasChildren':False, 'titles':['engineer','programmer']}
+
+personJSON = json.dumps(person, indent=4, sort_keys = True) #Here we change python dict obj into json string called serialization ,(sort_keys is sorted the object by order of keys.,)
+print(personJSON)
+
+person = json.loads(personJSON) #Deserialization convert json to python dict.
+print(person)
 
 
 
 
 
 
+'''
+with open('person.json', 'w') as file: #to store json data in file #Here file not created ... why??
+    json.dump(person, file, indent=4)'''
 
-
+'''
+with open('person.json', 'r') as file: #to retrieve data from that file
+    json.load(person, file, indent=4)'''
 
 
 #######connect MYSQL############
@@ -562,6 +700,7 @@ mycur.execute(sql)
 cus_rec = mycur.fetchall()
 for rec in cus_rec:
     print(rec)'''
+
 
 
 

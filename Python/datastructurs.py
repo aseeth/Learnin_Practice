@@ -24,3 +24,4 @@ if res != -1:
     print("num present at",res,"index")
 else:
     print("num not in list")
+    

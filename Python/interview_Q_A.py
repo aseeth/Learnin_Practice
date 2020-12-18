@@ -288,7 +288,9 @@ num = int(input("enter u r num: "))
 prime(num)'''
 
 
+#16)write algorithm for binary search?
 
+'''
 def binSearch(l,n):
     start = 0
     end = len(l)-1
@@ -312,21 +314,73 @@ res = binSearch(l,n)
 if res != -1:
     print("num present at", res,"index")
 else:
-    print("num not present in list")
+    print("num not present in list")'''
 
 
 
+#17)write o/p for given python code?
+#print("\t\tWelcome\n") #twotab spaces Welcome goto next line
 
 
 
+#18)write o/p for given python code?
+'''
+a = 60
+print(60<<2) # find binary of 60 then add 2 zeros right side.o/p:240'''
 
 
 
+#19)convert the input camel case string to snake case?
+'''
+def conCase(s): 
+    res = [s[0].lower()]
+    for char in s[1:]:
+        if char.isupper():
+            res.append("_"+char.lower())
+        else:
+            res.append(char)
+    return ''.join(res)
+s = "AseethNani"
+print(conCase(s))'''
 
 
+#19(i) Same as above but based on num of input strings?
+'''
+def conCase(s):
+    l1 = []
+    for i in range(s):
+        b = input()
+        l1.append(b)
+    l2 = []
+    for s in l1: 
+        res = [s[0].lower()]
+        for char in s[1:]:
+            if char.isupper():
+                res.append("_"+char.lower())
+            else:
+                res.append(char)
+        out=''.join(res)
+        l2.append(out)
+    for line in l2:
+        print(line)
+s = int(input("enter num of strings: "))
+conCase(s)'''
 
+#20)run the given num of test cases, and if value % 3 then print 'fizz',value%5
+#then print 'buzz' or % by both 3 and 5 then print 'fizzbuzz'?
 
-
-
-
+def task20(x):
+    values = list(input().split())
+    for j in range(0,x):
+        for i in range(1,int(values[j])+1):
+            if(int(i)%3==0 and int(i)%5==0):
+                print('FizzBuzz')
+            elif(int(i)%3==0):
+                print('Fizz')
+            elif(int(i)%5==0):
+                print ('Buzz')
+            else:
+                print(i)
+x = int(input())
+task20(x)
 
