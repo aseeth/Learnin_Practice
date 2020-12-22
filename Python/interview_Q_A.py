@@ -349,8 +349,7 @@ print(conCase(s))'''
 def conCase(s):
     l1 = []
     for i in range(s):
-        b = input()
-        l1.append(b)
+        l1.append(input())
     l2 = []
     for s in l1: 
         res = [s[0].lower()]
@@ -364,11 +363,14 @@ def conCase(s):
     for line in l2:
         print(line)
 s = int(input("enter num of strings: "))
-conCase(s)'''
+conCase(s)
+'''
+
 
 #20)run the given num of test cases, and if value % 3 then print 'fizz',value%5
 #then print 'buzz' or % by both 3 and 5 then print 'fizzbuzz'?
 
+'''
 def task20(x):
     values = list(input().split())
     for j in range(0,x):
@@ -382,5 +384,77 @@ def task20(x):
             else:
                 print(i)
 x = int(input())
-task20(x)
+task20(x)'''
+
+
+#21) find the out put?
+'''
+line= "Home Alone"
+line [4] = "-"
+print(line)''' #TypeError: 'str' object does not support item assignment
+
+
+#22)What is the output of the following Python code:?
+'''
+a = 10
+b = 20
+c = b/a
+print(c) #o/p: 2.0'''
+
+
+#23)What is the output of the following Python code:?
+'''
+s = "\t\tWelcome\n"
+print(s.strip())        #o/p:Welcome'''
+
+
+
+#24)What is the output of the following Python code:?
+'''
+d = {}
+d.setdefault("name":"aseeth")
+print(d)          #o/p:SyntaxError: invalid syntax ("name"="aseeth")'''
+
+
+
+#25)What is the output of the following Python code:?
+'''
+a = 60
+print(a<<2)  #o/p:240'''
+
+
+#26)What is the output of the following Python code:?
+'''
+x = [1,2,3,4,5]
+y = [11,12,13,14,15]
+print(len([m+n for m,n in zip(x,y)]))   #o/p:5'''
+
+
+
+#27)
+#a = "abcdefgh"
+#b = "xyz"
+#c = "12345"
+#write a logic to produce the following out put:ax1,by2,cz3,d4,e5,f,g,h??
+
+def task27(a,b,c):
+    l = [a,b,c]
+    m = max(len(i) for i in l)
+    final = []
+    for i in range(0,m):
+        s = ''
+        for each in l:
+            try:
+                s += each[i]
+            except IndexError:
+                pass
+        final.append(s)
+    out = ','.join(final)
+    print(out)
+a = "abcdefgh"
+b = "xyz"
+c = "12345"
+task27(a,b,c)
+
+
 
