@@ -1,0 +1,63 @@
+Spaces b/w links:
+
+Type “&nbsp;” to add a single space
+Type “&ensp;” to add 2 spaces
+Type “&emsp;” to add 4 spaces
+Use the non-breaking space (nbsp) 4 times to insert a tab
+Use “br” to add a line break
+
+----------------------------------------------------------------------------
+==>To call anothe html page by click on button:
+
+<input type=button onClick="parent.location='index.html'" value='click here'>
+
+		(Or)
+
+==> It done with form action also
+
+<html>
+
+<form action="aseeth.html">
+
+<input type="submit"  value="Home">
+
+
+</form> 
+
+
+-------------------------------------------------------------------------------
+==> To call another page with the buttton
+
+<html>
+<body>
+
+<p>Click the button to display a string as a hyperlink.</p>
+
+<button onclick="myFunction()">Try it</button>
+
+<p id="demo"></p>
+
+<script>
+function myFunction() {
+    var str = "Free Web Building Tutorials!";
+    var result = str.link("https://www.w3schools.com");
+    document.getElementById("demo").innerHTML = result;
+}
+</script>
+
+</body>
+</html>
+---------------------------------------------------------------------------------------------
+==> Dispay the time by click on button:
+
+<html>
+<body>
+
+<p>Click the button to display the time.</p>
+
+<button onclick="getElementById('demo').innerHTML=Date()">What is the time?</button>
+
+<p id="demo"></p>
+
+</body>
+</html>

@@ -50,7 +50,12 @@ print(my_tuple)'''
 '''
 a = (1,2,3,4,5,6,7)         #it supports slicing
 b = a[2:5:2]
-print(b)'''
+print(b)
+del a                       #for delete entire tuple
+print(mia(a))
+print(max(a)) 
+print(a.count(2))
+'''
 
 
 #tuple packing
@@ -137,12 +142,20 @@ for value in mydict1.values():
 
 
 ############merge two dictionaris#######
+#case1:
 '''
 mydict1 = {'name':'aseeth','age':'26', 'city':'kkd'}
 mydict2 = {'addres':'1-111','street':'temple street'}
 mydict1.update(mydict2)                #merge two dictrionaries using update() function.
 print(mydict1)'''
 
+#case2:
+'''
+d1 = {1:'a',2:'b'}
+d2 = {3:'c'}
+d3 = {**d1, **d2}
+print(d3)'''
+ 
 
 ##########tuple can use keys in dictionary not list######
 '''

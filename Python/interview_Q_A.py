@@ -344,6 +344,15 @@ s = "AseethNani"
 print(conCase(s))'''
 
 
+#19)(*)using lambda function reduce?
+'''
+from functools import reduce
+def conCase(s): 
+    res = reduce(lambda x,y: x+('_' if y.isupper() else '')+y,s).lower()
+    print(res)
+s = "AseethNani"
+conCase(s)'''
+
 #19(i) Same as above but based on num of input strings?
 '''
 def conCase(s):
@@ -365,6 +374,28 @@ def conCase(s):
 s = int(input("enter num of strings: "))
 conCase(s)
 '''
+
+
+#19(ii) Same as above but based on num of input strings?
+'''
+def task(si):
+    ini = []
+    for i in range(si):
+        ini.append(input())
+    for each in ini:
+        final=[each[0].lower()]
+        for char in each[1:]:
+            if char.isupper():
+                final.append("_"+char.lower())
+            else:
+                final.append(char)
+        out = ''.join(final)
+        print(out)
+si = int(input("enter num of str: "))
+task(si)'''
+
+
+
 
 
 #20)run the given num of test cases, and if value % 3 then print 'fizz',value%5
@@ -437,6 +468,7 @@ print(len([m+n for m,n in zip(x,y)]))   #o/p:5'''
 #c = "12345"
 #write a logic to produce the following out put:ax1,by2,cz3,d4,e5,f,g,h??
 
+'''
 def task27(a,b,c):
     l = [a,b,c]
     m = max(len(i) for i in l)
@@ -454,7 +486,7 @@ def task27(a,b,c):
 a = "abcdefgh"
 b = "xyz"
 c = "12345"
-task27(a,b,c)
+task27(a,b,c)'''
 
 
 

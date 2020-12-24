@@ -1,0 +1,107 @@
+****************SQL QUERIES******************
+
+1)Insert record:
+syn: INSERT INTO  table_name (column_1,column_2,...) VALUES (value_1,value_2,...);
+ex:INSERT INTO members (`full_names`,`gender`,`physical_address`,`contact_number`) VALUES ('Leonard Hofstadter','Male','Woodcrest',0845738767); 
+..................................................................................................................
+
+2)Delete Records:
+syn:DELETE FROM `table_name` [WHERE condition];
+ex:DELETE FROM `movies` WHERE `movie_id` = 18;
+.........................................................................
+
+3)TO add field or column to existing table:
+
+syn:alter table tablename add column columnname datatype;
+ex: alter table tablename add column phone_no int(12);
+.........................................................................
+
+4)Update:
+
+syn:UPDATE `table_name` SET `column_name` = `new_value' [WHERE condition];
+
+ex:mysql> update employee set phone = 875678367 where eno = 555;
+.........................................................................
+
+5)to get records in ascending or descending order?
+
+i) Descending:
+syn: SELECT * FROM tablename ORDER BY columnnmae DESC;
+ex:SELECT * FROM employee ORDER BY eno DESC;
+
+ii)Ascending:
+syn: SELECT * FROM tablename ORDER BY columnnmae ASC;
+ex:SELECT * FROM employee ORDER BY eno ASC;
+
+iii)Here asecending and descending based on gender:
+syn:SELECT * FROM tablename ORDER BY columnname;
+ex:SELECT * FROM tablename ORDER BY gender;
+
+
+Note:
+Let's now look at an example that does the sorting using two columns; the first one is 
+sorted in ascending order by default while the second column is sorted in descending order.
+
+syn: SELECT * FROM tablename ORDER BY columnname1,columnname2 DESC;
+ex:SELECT * FROM tablename ORDER BY gender,eno DESC;
+..................................................................................
+
+6)Count the recods based on the gender?
+
+syn:SELECT `gender`,COUNT(primarykey column)  FROM tablename GROUP BY `gender`;
+ex:SELECT `gender`,COUNT(eno)  FROM employee GROUP BY `gender`;
+......................................................................................
+
+7)Count the num of records in a table?
+
+syn:select count(*) from tablename;
+ex:mysql> select count(*) from employee;
+......................................................................................
+
+JOINS
+
+Different Types of SQL JOINs
+
+Here are the different types of the JOINs in SQL:
+
+1)(INNER) JOIN: Returns records that have matching values in both tables
+2)LEFT (OUTER) JOIN: Returns all records from the left table, and the matched records from the right table
+3)RIGHT (OUTER) JOIN: Returns all records from the right table, and the matched records from the left table
+4)FULL (OUTER) JOIN: Returns all records when there is a match in either left or right table
+
+
+1.inner join:
+select * from t1 join t2 on t1.id1=t2.id2
+
+2.left outer join:
+select * from t1 left join t2 on t1.id1=t2.id2
+
+3.right outer join:
+select * from t1 right  join t2 on t1.id1=t2.id2
+
+4.full outer join:
+select * from t1 full join t2 on t1.id1=t2.id2
+
+
+==>###########if u want selected columns from both tables then try below quary###########
+'''
+sql="select customer.ID,student.name,student.address,customer.subject 
+from customer inner join student on customer.ID = student.rollno;" '''
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
