@@ -547,19 +547,35 @@ except:
                 ############
 
 
-import json
+#ex1:
 
+#import json
+
+'''
 person = {'name':'aseeth', 'age':27, 'city':'Kakinada', 'hasChildren':False, 'titles':['engineer','programmer']}
 
 personJSON = json.dumps(person, indent=4, sort_keys = True) #Here we change python dict obj into json string called serialization ,(sort_keys is sorted the object by order of keys.,)
 print(personJSON)
 
 person = json.loads(personJSON) #Deserialization convert json to python dict.
-print(person)
+print(person)'''
 
+#ex2:
+'''
+class User:
+    def __init__(self,name,age):
+        self.name = name
+        self.age = age
+user = User('aseeth',27)
 
+def encode_user(o):
+    if isinstance(o,User):
+        return {'name':o.name,'age':o.name, o.__class__.__name__: True}
+    else:
+        raise TypeError()
 
-
+userJSON = json.dumps(user, default=encode_user)
+print(userJSON)'''
 
 
 '''
@@ -569,6 +585,141 @@ with open('person.json', 'w') as file: #to store json data in file #Here file no
 '''
 with open('person.json', 'r') as file: #to retrieve data from that file
     json.load(person, file, indent=4)'''
+
+
+
+#########################RANDOM MODULE###########################################
+
+
+#import random
+#a = random.random()
+#a = random.uniform(1,10)
+#a = random.randint(1,10)
+#a = random.randrange(1,10) #here 10 is excluded
+#a = random.normalvariate(0,1)
+
+#my_list = list("ABCDEFGH")
+#print(my_list)
+#a = random.choice(my_list) #you get random choince in tha list
+#a = random.choices(my_list,k=3)
+#a = random.sample(my_list, 2) #you get random of given num elements those are unique
+#print(a)
+#random.shuffle(my_list) #shuffle the list items
+#print(my_list)
+#random.seed() #by using this seed() method we reproduce the same data.
+
+
+'''
+random.seed(1)
+print(random.random())
+print(random.randint(1,10))
+
+random.seed(1)
+print(random.random())
+print(random.randint(1,10))'''
+
+#################### numpy module #########################3
+'''
+import numpy as np 
+#a = np.random.rand(3)
+#a = np.random.rand(3,2)
+#a = np.random.randint(0,10,3)
+#a = np.random.randint(0,10,(3,4)) #in tuple we give the dimensions
+#print(a)
+
+arr = np.array([[1,2,3],[4,5,6],[7,8,9]])
+print(arr)
+np.random.shuffle(arr)
+print(arr)'''
+
+
+
+####################### DECORATORS ############################
+#extends the behaviour of the funciton with decorator.
+
+#Ex1:
+
+'''
+def outer_fun(func):
+    def inner_fun():
+        print('start')
+        func()
+        print('end')
+    return inner_fun
+
+@outer_fun                          #another way for decorator
+def dosomethig():
+    print('aseeth')
+
+#dosomethig = outer_fun(dosomethig) #one way for decorator 
+dosomethig()'''
+
+
+
+#Ex2)
+'''
+#when pass arguments to the function.?
+
+#import functools
+
+def outer_fun(func):
+
+    #@functools.wraps(func)
+    def inner_fun(*args,**kwargs):
+        print('start')
+        res = func(*args,**kwargs)
+        print('end')
+        return res
+    return inner_fun
+
+@outer_fun                          
+def add(x):
+    return x+20
+res = add(10)
+print(res)'''
+
+
+
+
+#Ex3) Nested decorators? 
+'''
+import functools
+def repeat(num_times):
+    def decorator_repeat(func):
+        @functools.wraps(func)
+        def wrapper(*args,**kwargs):
+            for _ in range(num_times):
+                res = func(*args,**kwargs)
+            return res
+        return wrapper
+    return decorator_repeat
+
+@repeat(num_times = 5)
+def greet(name):
+    print(f"Hello {name}") 
+greet('aseeth')'''
+
+
+#Ex4)Class based decorators.
+
+class CountCalls:
+    def __init__(self, func):
+        self.func = func
+        self.num_calls = 0
+
+    def __call__(self,*args,**kwargs):
+        self.num_calls += 1
+        print(f'This is executed {self.num_calls} times')
+        return self.func(*args,**kwargs)
+
+
+@CountCalls
+def say_hello():
+    print('hello')
+
+say_hello()
+say_hello()
+
 
 
 #######connect MYSQL############
